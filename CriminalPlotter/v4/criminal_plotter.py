@@ -2,7 +2,11 @@ import serial
 import os
 import time
 
+# Alterar conforme necessário
+# portaArduino = '/dev/x' # Substitua 'x' pelo número da porta COM do seu Arduino
 portaArduino = '/dev/ttyUSB0'
+# portaArduino = 'COMx'  # Substitua 'x' pelo número da porta COM do seu Arduino
+
 
 # Configura a porta serial (ajuste a porta conforme seu sistema)
 ser = serial.Serial(portaArduino, 9600)  # Substitua 'COM9' pela sua porta serial
@@ -65,31 +69,32 @@ def principal():
                 print(f"Linha {idx}: {row}")
 
 
-            stack_x = []  # Stack para coordenadas x
-            stack_y = []  # Stack para coordenadas y
+            stack = []  # Stack para coordenadas (x, y)
 
             for i in range(len(matriz)):  # Itera sobre as linhas
                 for j in range(len(matriz[i])):  # Itera sobre as colunas da linha atual
                     if matriz[i][j] == 0:
-                        stack_x.append(i)  # Adiciona o índice da linha (x) na stack_x
-                        stack_y.append(j)  # Adiciona o índice da coluna (y) na stack_y
+                        stack.append((i, j))  # Adiciona o par (x, y) na stack
 
+            print(f"Coordenadas na stack: {stack}")
 
-            print(f"Coordenadas na stack_x: {stack_x}")
-            print(f"Coordenadas na stack_y: {stack_y}")
 
             # Envia os pares da stack para o Arduino
-            while stack_x and stack_y:
-                x = stack_x.pop()
-                y = stack_y.pop()
+            while stack:  # Enquanto houver elementos na stack
+
+                x, y = stack.pop()  # Desempilha a tupla (x, y)
+
                 comando = f"{x} {y}\n"
+
                 print(f"Enviando coordenadas para o Arduino: {comando.strip()}")
+
                 ser.write(comando.encode())
                 time.sleep(0.1)  # Pequeno delay
 
                 # Espera receber "OK" do Arduino (indica que terminou de imprimir)
                 ok = 'L'
                 while ok != 'OK':
+                    time.sleep(0.1)  # Pequeno delay
                     ok = ser.readline().decode('ascii', errors='ignore').strip()  # Espera a linha completa de "OK"
                     print(f"Recebido do Arduino: {ok}")
         else:
