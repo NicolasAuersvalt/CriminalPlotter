@@ -1,10 +1,7 @@
-// Definição dos pinos do teclado 3x3
-#define ROW1 A0
-#define ROW2 A1
-#define ROW3 A2
-#define COL1 A3
-#define COL2 A4
-#define COL3 A5
+#include <Keypad.h>
+
+const byte LINHAS = 3; // Número de linhas
+const byte COLUNAS = 3; // Número de colunas
 
 const int pot = A0;
 int i;
@@ -24,9 +21,20 @@ const int motorDelay = 100 - velocidade;
 const int giros_inicio = 1300;
 
 // Teclas -> COLOCAR VETOR
-char primeira = 'L';
-char segunda = 'L';
+char combinacao[4];
 
+
+
+char teclas[LINHAS][COLUNAS] = {
+  {'1', '2', '3'},
+  {'4', '5', '6'},
+  {'*', '0', '#'}
+};
+
+byte pinosLinhas[LINHAS] = {A0, A1, A2}; // Conecte as linhas do teclado aqui
+byte pinosColunas[COLUNAS] = {A3, A4, A5};   // Conecte as colunas do teclado aqui
+
+Keypad teclado = Keypad(makeKeymap(teclas), pinosLinhas, pinosColunas, LINHAS, COLUNAS);
 
 void setup()
 {
@@ -40,13 +48,6 @@ void setup()
     pinMode(motorZ[i], OUTPUT); // Configura os pinos como saída
   }
 
-  // Configura as linhas e colunas como entradas com pull-up
-  pinMode(ROW1, INPUT_PULLUP);
-  pinMode(ROW2, INPUT_PULLUP);
-  pinMode(ROW3, INPUT_PULLUP);
-  pinMode(COL1, INPUT_PULLUP);
-  pinMode(COL2, INPUT_PULLUP);
-  pinMode(COL3, INPUT_PULLUP);
 }
 
 void canetar(int giros)
@@ -62,24 +63,13 @@ void canetar(int giros)
   delay(tmp);
 }
 
-
-void limpar(bool priString){
-  Serial.println("Limpar");
-  if(priString){
-    primeira =  'L';
-  }
-  else{
-    segunda = 'L';
-  }
-}
-
-void desenhar(int prim, int seg)
+void desenhar()
 {
 
   // while o python enviar valores para x e y
-  Serial.print(prim);
-  Serial.print(seg);
-  Serial.print("Pronto");
+  Serial.print(combinacao[0]);
+  Serial.println(combinacao[2]);
+  Serial.println("Pronto");
 
   // Enquanto houver dados
   while (Serial.available() >= 8)
@@ -118,7 +108,7 @@ void desenhar(int prim, int seg)
     canetar(passoZ);
     
     // Fala para o python que está pronto para receber dados
-    Serial.print("OK");
+    Serial.println("OK");
   }
   Serial.println("Terminou o desenho");
 }
@@ -158,59 +148,24 @@ void mover(int giro, int motor[])
   Serial.println("Mover Concluido");
 }
 
-char teclado()
-{
-  Serial.println("Teclado()");
+void teclar(int etapa) {
+  Serial.println("Digite...");
 
-  char tecla; 
   bool pressionada = false;
 
   while (!pressionada) {
-    Serial.println("Esperando Leitura do Teclado");
-    
-    // Verifica se a linha 1 foi pressionada
-    if (digitalRead(ROW1) == LOW) {
-      if (digitalRead(COL1) == LOW) {
-        tecla = '1';
-      }
-      else if (digitalRead(COL2) == LOW) {
-        tecla = '2';
-      }
-      else if (digitalRead(COL3) == LOW) {
-        tecla = '3';
-      }
-      pressionada = true;
-    }
-    // Verifica se a linha 2 foi pressionada
-    else if (digitalRead(ROW2) == LOW) {
-      if (digitalRead(COL1) == LOW) {
-        tecla = '4';
-      }
-      else if (digitalRead(COL2) == LOW) {
-        tecla = '5';
-      }
-      else if (digitalRead(COL3) == LOW) {
-        tecla = '6';
-      }
-      pressionada = true;
-    }
-    // Verifica se a linha 3 foi pressionada (sem os 7, 8, 9)
-    else if (digitalRead(ROW3) == LOW) {
-      if (digitalRead(COL1) == LOW) {
-        tecla = '*';  // Tecla *
-      }
-      else if (digitalRead(COL2) == LOW) {
-        tecla = '0';  // Tecla 0
-      }
-      else if (digitalRead(COL3) == LOW) {
-        tecla = '#';  // Tecla #
-      }
+
+    char tecla = teclado.getKey();
+
+    if (tecla) {
+      Serial.println(tecla);
+
+      combinacao[etapa] = tecla;
       pressionada = true;
     }
   }
-
-  return tecla;
 }
+
 
 
 void inicializador()
@@ -230,6 +185,11 @@ void inicializador()
   yAtual = 0;
 
   horario = false;
+
+  for (int i=0; i<3; i++){
+    combinacao[i] = 'L';
+  }
+
   Serial.println("Inicializador OK");
 }
 
@@ -245,62 +205,71 @@ void canetar(int giros, int motorZ[])
   delay(tmp);
 }
 
-void encadeamento() {
+void encadeamento(){
+  prim_caract();
+}
 
+void prim_caract() {
   while (true) {
-    
-    Serial.println("Encadeamento 1");
+    Serial.println("Caracteristica");
+    teclar(0);
 
-    bool proximo = false;
-    char primeira, segunda;  // Declaração das variáveis de entrada
+    if (combinacao[0] != '#' && combinacao[0] != '*' && combinacao[0] != 'L') {
 
-    // Espera a leitura do keypad
-    primeira = teclado();
+      if (confirmacao(1)) {
 
-    if (primeira == '#') { // TERMINA A IMPRESSÃO
-      Serial.println("Encerrado...");
-      return;
-    }
+        seg_caract();
+        return;
 
-    if (primeira == '*') { // USUARIO TECLOU *
-      Serial.println("Proximo");
-      proximo = true;
-    }
-
-    if (proximo) { // Quando o usuário teclar *
-
-      while (true) { // A pessoa pode querer voltar para a primeira característica
-
-        Serial.println("Encadeamento 2");
-
-        segunda = teclado();
-
-        if (segunda == '*') { // USUARIO TECLOU *
-          Serial.println("Segue");
-          desenhar(primeira, segunda);
-          break;
-        }
-        else if (segunda == '#') { // USUARIO TECLOU #
-          Serial.println("Cancelado");
-          limpar(segunda); // LIMPA A TECLA DIGITADA
-        }
       }
+    }
+  }
+}
+bool confirmacao(int etapa) {
+  while (true) {
 
-      // Limpa as teclas
-      limpar(primeira);
-      limpar(segunda);
+    Serial.println("Confimacao: | * SIM | # NAO |");
+    teclar(etapa);
 
-    } else if (primeira == '#') {
-      limpar(primeira);
+    if (combinacao[etapa] == '*' && combinacao[etapa] != 'L') {
+
+      return true;
+
+    } 
+    else if (combinacao[etapa] == '#') {
+
+      combinacao[etapa] = 'L';
+      combinacao[etapa - 1] = 'L';
+      return false;
+
     }
   }
 }
 
+void seg_caract() {
+  while (true) {
+
+    Serial.println("Formato");
+    teclar(2);
+
+    if (combinacao[2] != '#' && combinacao[2] != '*' && combinacao[2] != 'L') {
+
+      if (confirmacao(3)) {
+
+        desenhar();
+        return;
+
+      }
+    }
+  }
+}
+
+
 void principal()
 {
-  //inicializador();
+  inicializador();
+  prim_caract();
   
-  encadeamento();
 }
 
 void loop()
