@@ -20,7 +20,7 @@ def principal():
         try:
             # Lê a linha completa enviada pelo Arduino (espera "Pronto\n")
             pronto = ser.readline().decode('ascii', errors='ignore').strip()  # Remove espaços e '\n'
-            
+            print(f"Recebido do Arduino: {pronto}")
             if pronto == "Pronto":
                 print(f"Mensagem 'Pronto' recebida: {pronto}")
                 
@@ -51,37 +51,36 @@ def principal():
                     except Exception as e:
                         print(f"Erro ao ler o arquivo: {e}")
 
-                    # Exibe a matriz lida
+                    #Exibe a matriz lida
                     print("Matriz lida:")
                     for row in matriz:
                         print(row)
 
                     # Depuração
-                    print("Conteúdo atual da matriz para depuração:")
-                    for idx, row in enumerate(matriz):
-                        print(f"Linha {idx}: {row}")
+                    # print("Conteúdo atual da matriz para depuração:")
+                    # for idx, row in enumerate(matriz):
+                        # print(f"Linha {idx}: {row}")
 
                     # Criação da stack de coordenadas (x, y)
-                    stack = []
+
                     for i in range(len(matriz)):  # Itera sobre as linhas
                         for j in range(len(matriz[i])):  # Itera sobre as colunas da linha atual
                             if matriz[i][j] == 0:
                                 queue.append((i, j))
-                    print(f"Coordenadas na stack: {stack}")
+                    # print(f"Coordenadas na stack: {queue}")
 
                     # Envia os pares da stack para o Arduino
                     while queue:
                         x, y = queue.popleft()
 
-                        comando = f"{x}{y}\n"
+                        comando = f"{x} {y}\n"
 
                         # Exibe a mensagem de depuração
-                        print(f"Enviando coordenadas para o Arduino: {comando.strip()}")
+                        print(f"Enviando coordenadas para o Arduino: {comando}")
 
                         # Envia dois inteiros como bytes (2 bytes para cada inteiro)
                         ser.write(x.to_bytes(2, 'big'))  # Converte x para 2 bytes e envia
                         ser.write(y.to_bytes(2, 'big'))  # Converte y para 2 bytes e envia
-
 
                         time.sleep(0.1)  # Pequeno delay
 
@@ -91,6 +90,7 @@ def principal():
                             time.sleep(0.1)  # Pequeno delay
                             ok = ser.readline().decode('ascii', errors='ignore').strip()  # Espera a linha completa de "OK"
                             print(f"Recebido do Arduino: {ok}")
+                    print("Impressão Concluída")
                 else:
                     print(f"Arquivo {file_name} não encontrado no diretório matrizes.")
         
