@@ -8,7 +8,8 @@ queue = deque()  # Criação da fila (queue)
 
 
 # Configura a porta serial (ajuste a porta conforme seu sistema)
-portaArduino = 'COM9'
+# portaArduino = 'COM9'
+portaArduino = '/dev/ttyUSB0'
 ser = serial.Serial(portaArduino, 9600)  # Substitua 'COM9' pela sua porta serial
 print(f"Conectado à porta {portaArduino} com baudrate 9600")
 time.sleep(2)  # Aguarda o Arduino inicializar
@@ -57,9 +58,9 @@ def principal():
                         print(row)
 
                     # Depuração
-                    # print("Conteúdo atual da matriz para depuração:")
-                    # for idx, row in enumerate(matriz):
-                        # print(f"Linha {idx}: {row}")
+                    print("Conteúdo atual da matriz para depuração:")
+                    for idx, row in enumerate(matriz):
+                        print(f"Linha {idx}: {row}")
 
                     # Criação da stack de coordenadas (x, y)
 

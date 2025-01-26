@@ -52,20 +52,6 @@ void setup()
 
 }
 
-void canetar(int giros)
-{
-
-  delay(tmp);
-
-  horario = true;
-  mover(giros, motorZ); // Desce
-  
-  delay(tmp);
-  horario = false;
-  
-  mover(giros, motorZ); // Sobe
-  delay(tmp);
-}
 
 void desenhar()
 {
@@ -78,6 +64,8 @@ void desenhar()
   Serial.print(combinacao[2]);
 
   sinalEvento(1);
+  sinalEvento(1);
+  
   
   // Enquanto houver dados
   while (Serial.available() >= 4)
