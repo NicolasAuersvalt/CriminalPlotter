@@ -4,6 +4,7 @@ const byte LINHAS = 3;  // Número de linhas
 const byte COLUNAS = 3; // Número de colunas
 
 int i;
+
 int motorX[] = {2, 3, 4, 5};
 int motorY[] = {6, 7, 8, 9};
 int motorZ[] = {10, 11, 12, 13};
@@ -27,7 +28,8 @@ char combinacao[4];
 char teclas[LINHAS][COLUNAS] = {
     {'1', '2', '3'},
     {'4', '5', '6'},
-    {'*', '0', '#'}};
+    {'*', '0', '#'}
+    };
 
 byte pinosLinhas[LINHAS] = {A5, A4, A3};   // Conecte as linhas do teclado aqui
 byte pinosColunas[COLUNAS] = {A2, A1, A0}; // Conecte as colunas do teclado aqui
@@ -38,6 +40,7 @@ void setup()
 {
 
   Serial.begin(9600);
+
   Serial.setTimeout(5000); // Configura o timeout de leitura para 10 segundos (10000 ms)
 
   for (i = 0; i < 4; i++)
@@ -46,6 +49,7 @@ void setup()
     pinMode(motorY[i], OUTPUT); // Configura os pinos como saída
     pinMode(motorZ[i], OUTPUT); // Configura os pinos como saída
   }
+
 }
 
 void canetar(int giros)
@@ -73,8 +77,7 @@ void desenhar()
   Serial.print(combinacao[0]);
   Serial.print(combinacao[2]);
 
-  // sinalEvento(1);
-  
+  sinalEvento(1);
   
   // Enquanto houver dados
   while (Serial.available() >= 4)
@@ -126,7 +129,6 @@ void desenhar()
 
     xAtual = xPython;
     yAtual = yPython;
-    // Antihorário
     
     //Serial.println("Canetar");
     
@@ -218,11 +220,12 @@ void inicializador()
   {
 
     combinacao[i] = 'L';
+
   }
   
 }
 
-void canetar(int giros, int motorZ[])
+void canetar(int giros)
 {
 
   delay(tmp);
@@ -238,10 +241,6 @@ void canetar(int giros, int motorZ[])
   delay(tmp);
 }
 
-void encadeamento()
-{
-  prim_caract();
-}
 
 void inicializarMotores()
 {
@@ -334,11 +333,13 @@ void seg_caract()
     {
       
       sinalEvento(1);
+
       if (confirmacao(3))
       {
 
         desenhar();
         return;
+
       }
     }
   }
@@ -384,7 +385,10 @@ void sinalEvento(int evento)
 
 void loop()
 {
+
   inicializador();
+
   sinalEvento(1);
+
   prim_caract();
 } 
