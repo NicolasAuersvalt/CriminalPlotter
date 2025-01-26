@@ -48,20 +48,6 @@ void setup()
   }
 }
 
-void canetar(int giros)
-{
-
-  delay(tmp);
-
-  horario = true;
-  mover(giros, motorZ); // Desce
-  
-  delay(tmp);
-  horario = false;
-  
-  mover(giros, motorZ); // Sobe
-  delay(tmp);
-}
 
 void desenhar()
 {
@@ -73,7 +59,7 @@ void desenhar()
   Serial.print(combinacao[0]);
   Serial.print(combinacao[2]);
 
-  // sinalEvento(1);
+  sinalEvento(1);
   
   
   // Enquanto houver dados
@@ -222,7 +208,7 @@ void inicializador()
   
 }
 
-void canetar(int giros, int motorZ[])
+void canetar(int giros)
 {
 
   delay(tmp);
@@ -238,10 +224,6 @@ void canetar(int giros, int motorZ[])
   delay(tmp);
 }
 
-void encadeamento()
-{
-  prim_caract();
-}
 
 void inicializarMotores()
 {
