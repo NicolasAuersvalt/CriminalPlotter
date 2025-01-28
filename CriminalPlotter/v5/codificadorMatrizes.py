@@ -53,7 +53,7 @@ def save_matrix_to_file(matrix, output_path):
 image_path = "imagens/in.png"
 
 # Configuração
-target_height = 312  # Altura desejada
+target_height = 100  # Altura desejada
 output_image_path = "redimensionada.png"  # Caminho para salvar a imagem redimensionada
 output_matrix_path = "m.txt"  # Caminho para salvar a matriz
 
