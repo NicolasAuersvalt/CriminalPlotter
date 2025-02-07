@@ -24,7 +24,7 @@ const int tmpEvento = 10;
 const int giros_subida = 20;
 
 // Teclas
-char combinacao[4];
+char combinacao[6];
 
 char teclas[LINHAS][COLUNAS] = {
     {'1', '2', '3'},
@@ -63,6 +63,7 @@ void desenhar()
   // while o python enviar valores para x e y
   Serial.print(combinacao[0]);
   Serial.print(combinacao[2]);
+  Serial.print(combinacao[4]);
 
   sinalEvento(1);
   sinalEvento(1);
@@ -331,6 +332,31 @@ void seg_caract()
       sinalEvento(1);
 
       if (confirmacao(3))
+      {
+
+        ter_caract();
+        return;
+
+      }
+    }
+  }
+}
+
+void ter_caract()
+{
+  
+  while (true)
+  
+  {
+
+    teclar(4);
+
+    if (combinacao[4] != '#' && combinacao[4] != '*' && combinacao[4] != 'L')
+    {
+      
+      sinalEvento(1);
+
+      if (confirmacao(5))
       {
 
         desenhar();

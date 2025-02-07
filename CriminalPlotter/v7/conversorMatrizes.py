@@ -4,7 +4,7 @@ import os
 
 def png_to_binary_matrix(input_image_path, output_text_path, threshold=128):
     """
-    Converte uma imagem PNG em uma matriz binária e salva como arquivo de texto.
+    Converte uma imagem PNG em uma matriz binária invertida e salva como arquivo de texto.
     
     Args:
         input_image_path (str): Caminho para a imagem PNG de entrada.
@@ -21,17 +21,18 @@ def png_to_binary_matrix(input_image_path, output_text_path, threshold=128):
         image_array = np.array(image)
         print(f"Dimensões da imagem: {image_array.shape}")
         
-        # Aplica o limiar para gerar a matriz binária
+        # Aplica o limiar para gerar a matriz binária e inverte os valores
         binary_matrix = (image_array >= threshold).astype(int)
+        inverted_matrix = 1 - binary_matrix
         
-        # Salva a matriz binária em um arquivo .txt
-        np.savetxt(output_text_path, binary_matrix, fmt='%d', delimiter='')
+        # Salva a matriz binária invertida em um arquivo .txt
+        np.savetxt(output_text_path, inverted_matrix, fmt='%d', delimiter='')
         
-        print(f"Matriz binária salva em: {output_text_path}")
+        print(f"Matriz binária invertida salva em: {output_text_path}")
     except Exception as e:
         print(f"Erro ao processar a imagem {input_image_path}: {e}")
 
-import os
+
 
 def process_all_images(images_root):
     """
