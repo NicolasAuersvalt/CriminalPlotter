@@ -66,7 +66,6 @@ void desenhar()
   Serial.print(combinacao[4]);
 
   sinalEvento(1);
-  sinalEvento(1);
   
   
   // Enquanto houver dados

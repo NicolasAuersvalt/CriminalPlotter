@@ -35,7 +35,7 @@ def principal():
                 # Converte os caracteres para inteiros
                 int1 = int(char1)
                 int2 = int(char2)
-                int2 = int(char3)
+                int3 = int(char3)
 
                 print(f"Convertido para inteiros: int1 = {int1}, int2 = {int2}, int3 = {int3}")
                 
