@@ -15,13 +15,13 @@ bool horario = false;
 const int velocidade = 97;
 const int passo = 7; // 2mm de distância entre os passos
 const int passoEvento = 7;
-const int passoZ = 50;
-const int tmp = 100;
+const int passoZ = 20;
+const int tmp = 10; // 100
 const int giros_inicioZ = 50;
 const int motorDelay = 100 - velocidade;
 const int giros_inicio = 1300;
 const int tmpEvento = 10;
-const int giros_subida = 20;
+const int giros_subida = 10;
 
 // Teclas
 char combinacao[6];
@@ -65,7 +65,6 @@ void desenhar()
   Serial.print(combinacao[2]);
   Serial.print(combinacao[4]);
 
-  sinalEvento(1);
   sinalEvento(1);
   
   
@@ -192,6 +191,7 @@ void teclar(int etapa)
 
   while (!pressionada)
   {
+    //Serial.println("Digite um numero: ");
 
     char tecla = teclado.getKey();
 
@@ -203,23 +203,26 @@ void teclar(int etapa)
       
     }
   }
+  Serial.println("Digitado: ");
+  Serial.println(combinacao[etapa]);
 }
 
 void inicializador()
 {
+  
   // Serial.println("Inicializador");
   xAtual = 0;
   yAtual = 0;
 
   horario = false;
 
-  for (int i = 0; i < 3; i++)
+  for (int i = 0; i < 5; i++)
   {
 
     combinacao[i] = 'L';
 
   }
-  
+  //Serial.println("Inicializado");
 }
 
 void canetar(int giros)
@@ -255,15 +258,23 @@ void inicializarMotores()
 
   // Motor Z
   //Serial.println("MOTOR Z");
+  horario = true;
+  mover(100, motorZ); // Descida
+  delay(tmp);
+
+  // Motor Z
+  //Serial.println("MOTOR Z");
   horario = false;
-  mover(100, motorZ); // Subir
+  mover(100, motorZ); // Subida
   delay(tmp);
 }
 
 void prim_caract()
 {
+  
   while (true)
   {
+    Serial.println("Primeiro Digito");
     
     teclar(0);
 
@@ -284,7 +295,8 @@ void prim_caract()
     {
       
       inicializarMotores();
-
+      inicializador();
+      
     }
   }
 }
@@ -319,7 +331,7 @@ bool confirmacao(int etapa)
 
 void seg_caract()
 {
-  
+  Serial.println("Segunda Digito");
   while (true)
   
   {
@@ -344,7 +356,7 @@ void seg_caract()
 
 void ter_caract()
 {
-  
+  Serial.println("Terceiro Digito");
   while (true)
   
   {

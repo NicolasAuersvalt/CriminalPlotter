@@ -70,7 +70,7 @@ def principal():
 
                     for i in range(len(matriz)):  # Itera sobre as linhas
                         for j in range(len(matriz[i])):  # Itera sobre as colunas da linha atual
-                            if matriz[i][j] == 1:
+                            if matriz[i][j] == 0:
                                 queue.append((j, i))
                     # print(f"Coordenadas na stack: {queue}")
 
