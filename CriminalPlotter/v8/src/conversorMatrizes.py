@@ -57,5 +57,5 @@ def process_all_images(images_root):
                 png_to_binary_matrix(image_path, output_path)
 
 # Exemplo de uso
-images_root = "impressao"  # Substitua pelo caminho correto do diretório principal de imagens
+images_root = "imagens"  # Substitua pelo caminho correto do diretório principal de imagens
 process_all_images(images_root)

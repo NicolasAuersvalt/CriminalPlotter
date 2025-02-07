@@ -12,28 +12,13 @@ check_python() {
     fi
 }
 
-# Função para verificar se as bibliotecas necessárias estão instaladas
-check_libraries() {
-    REQUIRED_LIBS=("serial" "numpy" "PIL")
-    for lib in "${REQUIRED_LIBS[@]}"; do
-        if ! python -c "import $lib" &>/dev/null; then
-            echo "Biblioteca $lib não encontrada. Instalando..."
-            $PYTHON -m pip install "$lib"
-        fi
-    done
-}
-
 # Verificar se o Python está instalado
 check_python
 
-# Verificar se as bibliotecas estão instaladas
-check_libraries
-
-# Navegar para o diretório src
-cd /src
+python3 src/criminal_plotter.py
 
 # Executar os scripts Python
-$PYTHON somadorMatrizes.py
+python3 src/somadorMatrizes.py
 
 # Criando as imagens
-$PYTHON criadorImagens.py
+python3 src/criadorImagens.py
