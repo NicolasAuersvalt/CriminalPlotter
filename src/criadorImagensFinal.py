@@ -36,4 +36,4 @@ def matriz_para_png_sequencial(caminho_arquivo, diretorio_pai):
     print(f"Imagem salva em {caminho_saida}")
 
 # Exemplo de uso:
-matriz_para_png_sequencial("impressao/resultado/matriz_resultante.txt", "impressao")
+matriz_para_png_sequencial("impressao/bancoRetratos/matriz_resultante.txt", "impressao")

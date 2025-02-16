@@ -57,7 +57,7 @@ def principal():
                     except Exception as e:
                         print(f"Erro ao ler o arquivo: {e}")
 
-                    destino = os.path.join("impressao", file_name)
+                    destino = os.path.join("impressao/matrizes", file_name)
                     shutil.copy(file_path, destino)
                     print(f"Cópia da matriz salva em {destino}")
 

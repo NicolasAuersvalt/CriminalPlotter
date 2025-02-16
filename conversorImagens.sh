@@ -20,3 +20,5 @@ python3 src/somadorMatrizes.py
 
 # Criando as imagens
 python3 src/criadorImagens.py
+
+python3 src/analisadorJson.py

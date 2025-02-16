@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/nicol/Documents/GitHub/CriminalPlotter/CriminalPlotter/v4",
-      "program": "c:/Users/nicol/Documents/GitHub/CriminalPlotter/CriminalPlotter/v4/build/Debug/outDebug",
+      "cwd": "c:/Users/nicol/Documents/GitHub/CriminalPlotter/CriminalPlotter/v8/src",
+      "program": "c:/Users/nicol/Documents/GitHub/CriminalPlotter/CriminalPlotter/v8/src/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
