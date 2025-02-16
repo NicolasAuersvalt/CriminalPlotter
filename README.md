@@ -5,6 +5,48 @@
 
 **Data**: Outubro de 2024  
 
+
+
+## Requisitos Mínimos
+
+python 3
+
+![RGravitacional](assets/regiao_gravitacional.png)
+
+## Instalação
+
+Para baixar o código, use:
+
+    mkdir CriminalPlotter && cd CriminalPlotter
+    git clone https://github.com/NicolasAuersvalt/CriminalPlotter.git
+    cd CriminalPlotter
+
+Para instalar as bibliotecas, execute o script `instalador.sh`:
+
+    chmod +x instalador.sh CriminalPlotter.sh conversorMatrizes.sh conversorImagens.sh
+    ./instalador.sh
+
+---
+
+## Execução
+
+Após a instalação, para executar o projeto, utilize:
+
+    ./CriminalPlotter.sh
+
+Caso deseje apenas converter as imagens para matrizes, utilize:
+
+    ./conversorMatrizes.sh
+
+Para converter para imagens, copie as matrizes que deseja compor para a pasta impressao, e execute:
+
+    ./conversorImagens.sh
+
+Ao terminar a impressão, salve a imagem resultante em "/impressao" para evitar que seja sobrescrevida.
+
+---
+
+
 ## Abstract
 
 Em 2023, o Brasil registrou 47.722 assassinatos e 2.226 roubos e furtos para cada 100 mil habitantes. A situação fica ainda mais preocupante quando se considera que a taxa de solução de crimes é 65%, sendo em torno de 35% quando se trata de homicídios.
