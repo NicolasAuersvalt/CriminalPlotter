@@ -34,8 +34,9 @@ def somar_matrizes(repositorio):
         else:
             print(f"Matriz {arquivo} ignorada devido a tamanho diferente: {matriz.shape}")
     
-    for arquivo in arquivos:
-        os.remove(os.path.join(repositorio, arquivo))
+    # Removido o trecho que exclui os arquivos:
+    # for arquivo in arquivos:
+    #     os.remove(os.path.join(repositorio, arquivo))
     
     caminho_resultado = os.path.join(repositorio, "matriz_resultante.txt")
     with open(caminho_resultado, "w") as f:
