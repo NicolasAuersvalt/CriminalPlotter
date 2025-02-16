@@ -1,0 +1,1 @@
+rm impressao/matrizes_metadata.json
