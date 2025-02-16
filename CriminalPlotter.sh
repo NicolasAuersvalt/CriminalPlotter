@@ -16,4 +16,4 @@ check_python() {
 check_python
 
 # Executar os scripts Python
-python3 src/somadorMatrizes.py
+python3 src/criminal_plotter.py

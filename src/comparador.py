@@ -50,5 +50,5 @@ def filter_top_matrices_by_hundreds(input_file):
 
 
 # Exemplo de uso
-input_file = "impressao/matrices_metadata.json"  # Substitua pelo caminho correto do arquivo
+input_file = "impressao/matrizes_metadata.json"  # Substitua pelo caminho correto do arquivo
 filter_top_matrices_by_hundreds(input_file)

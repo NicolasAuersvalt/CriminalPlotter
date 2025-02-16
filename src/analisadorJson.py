@@ -11,7 +11,7 @@ def load_or_initialize_metadata(output_directory):
     Returns:
         dict: Dicionário contendo os dados do metadata.
     """
-    metadata_path = os.path.join(output_directory, "matrices_metadata.json")
+    metadata_path = os.path.join(output_directory, "matrizes_metadata.json")
     if os.path.exists(metadata_path):
         with open(metadata_path, "r") as f:
             print(f"Carregando metadata consolidado existente de: {metadata_path}")

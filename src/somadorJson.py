@@ -59,7 +59,7 @@ def somar_matrizes_com_json(diretorio_matrizes, diretorio_banco, arquivo_json):
     
     # Se a soma foi realizada, salva a matriz resultante
     if matriz_soma is not None:
-        caminho_resultado = os.path.join(diretorio_banco, "matriz_resultante.txt")
+        caminho_resultado = os.path.join(diretorio_banco, "matriz_analisada.txt")
         with open(caminho_resultado, "w") as f:
             for linha in matriz_soma:
                 f.write("".join(map(str, linha)) + "\n")
@@ -70,7 +70,7 @@ def somar_matrizes_com_json(diretorio_matrizes, diretorio_banco, arquivo_json):
 
 # Exemplo de uso
 diretorio_matrizes = "matrizes"  # Diretório onde as matrizes .txt estão
-diretorio_banco = "impressao/bancoRetratos"  # Diretório onde a matriz resultante será salva
-arquivo_json = "impressao/matrices_metadata.json"  # Caminho para o arquivo JSON com os nomes das matrizes
+diretorio_banco = "impressao"  # Diretório onde a matriz resultante será salva
+arquivo_json = "impressao/matrizes_metadata.json"  # Caminho para o arquivo JSON com os nomes das matrizes
 
 somar_matrizes_com_json(diretorio_matrizes, diretorio_banco, arquivo_json)

@@ -4,7 +4,7 @@ from PIL import Image
 
 def matriz_para_png_sequencial(caminho_arquivo, diretorio_pai):
     # Diretório de saída
-    subdiretorio = os.path.join(diretorio_pai, "Banco de Retratos")
+    subdiretorio = os.path.join(diretorio_pai, "analisado")
     os.makedirs(subdiretorio, exist_ok=True)  # Cria o subdiretório se não existir
 
     # Lista os arquivos existentes no subdiretório
@@ -36,4 +36,4 @@ def matriz_para_png_sequencial(caminho_arquivo, diretorio_pai):
     print(f"Imagem salva em {caminho_saida}")
 
 # Exemplo de uso:
-matriz_para_png_sequencial("impressao/bancoRetratos/matriz_resultante.txt", "impressao")
+matriz_para_png_sequencial("impressao/matriz_analisada.txt", "impressao")

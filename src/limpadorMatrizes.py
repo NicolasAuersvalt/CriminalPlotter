@@ -30,6 +30,7 @@ def remover_arquivos_txt(repositorio):
 
     print("Processo de remoção concluído.")
 
+
 # Exemplo de uso:
 remover_arquivos_txt("impressao")
-remover_arquivos_txt("impressao/resultado")
+remover_arquivos_txt("impressao/matrizes")

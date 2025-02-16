@@ -38,7 +38,7 @@ def somar_matrizes(repositorio):
     # for arquivo in arquivos:
     #     os.remove(os.path.join(repositorio, arquivo))
     
-    caminho_resultado = os.path.join(repositorio, "matriz_resultante.txt")
+    caminho_resultado = "impressao/matriz_resultante.txt"
     with open(caminho_resultado, "w") as f:
         for linha in matriz_soma:
             f.write("".join(map(str, linha)) + "\n")
@@ -49,4 +49,4 @@ def somar_matrizes(repositorio):
         print("Erro ao salvar a matriz resultante.")
 
 # Exemplo de uso:
-somar_matrizes("impressao")
+somar_matrizes("impressao/matrizes")
