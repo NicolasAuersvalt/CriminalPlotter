@@ -11,8 +11,6 @@
 
 python 3
 
-![RGravitacional](assets/regiao_gravitacional.png)
-
 ## Instalação
 
 Para baixar o código, use:
