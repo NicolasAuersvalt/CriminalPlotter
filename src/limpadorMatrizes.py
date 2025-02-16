@@ -32,3 +32,4 @@ def remover_arquivos_txt(repositorio):
 
 # Exemplo de uso:
 remover_arquivos_txt("impressao")
+remover_arquivos_txt("impressao/resultado")
