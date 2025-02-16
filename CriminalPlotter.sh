@@ -14,12 +14,6 @@ check_python() {
 
 # Verificar se o Python está instalado
 check_python
-python3 src/conversorMatrizes.py
-
-python3 src/criminal_plotter.py
 
 # Executar os scripts Python
 python3 src/somadorMatrizes.py
-
-# Criando as imagens
-python3 src/criadorImagens.py
