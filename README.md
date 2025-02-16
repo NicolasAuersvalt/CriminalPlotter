@@ -21,7 +21,7 @@ Para baixar o código, use:
 
 Para instalar as bibliotecas, execute o script `instalador.sh`:
 
-    chmod +x instalador.sh CriminalPlotter.sh conversorMatrizes.sh conversorImagens.sh
+    chmod +x instalador.sh CriminalPlotter.sh conversorMatrizes.sh conversorImagens.sh limpador.sh
     ./instalador.sh
 
 ---
@@ -40,7 +40,11 @@ Para converter para imagens, copie as matrizes que deseja compor para a pasta im
 
     ./conversorImagens.sh
 
-Ao terminar a impressão, salve a imagem resultante em "/impressao" para evitar que seja sobrescrevida.
+Ao terminar a impressão, a imagem estará numerada (sendo o maior dígito) em "Banco de Retratos". Para limpar o diretório e começar outra impressão, utilize:
+    
+    ./limpador.sh
+
+Assim, seu diretório estará limpo e pronto para iniciar outra impressão.
 
 ---
 
