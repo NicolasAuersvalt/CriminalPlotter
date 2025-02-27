@@ -16,7 +16,9 @@ Universidade Tecnológica Federal do Paraná
 ## Requisitos Mínimos
 
 python 3
+
 pySerial 3.4
+
 Debian 12
 
 ![Criminal Plotter Diagram](githubAssets/cp.PNG)
