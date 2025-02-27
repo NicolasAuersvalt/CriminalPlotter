@@ -4,8 +4,12 @@
 
 
 **Data**: Outubro de 2024  
+**Autores:**
+Gabriel Lazari Trevisani
+Laura Knoll Garcia De Oliveira
+Nícolas Auersvalt Marques
 
-
+Universidade Tecnológica Federal do Paraná
 
 ## Requisitos Mínimos
 
