@@ -44,7 +44,15 @@ Ao terminar a impressão, a imagem estará numerada (sendo o maior dígito) em "
     
     ./limpador.sh
 
-Assim, seu diretório estará limpo e pronto para iniciar outra impressão.
+Assim, seu diretório estará limpo e pronto para iniciar outra impressão. Para iniciar a análise e montar o rosto com maior probabilidade de ser um criminoso, utilize:
+
+    ./analisador.sh
+
+Com isso, será lido o arquivo matrizes_metadata.json e elaborada uma matriz com todas as características que mais apareceram nas últimas impressões, a imagem final será gerada no repositório impressao/analisado. Para limpar esse metadata e iniciar uma nova análise, use:
+
+    ./limparAnalise.sh
+
+Portanto, será possível iniciar uma nova análise.
 
 ---
 
