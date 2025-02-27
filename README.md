@@ -3,7 +3,9 @@
 ![Criminal Plotter Diagram](githubAssets/4.png)
 
 
-**Data**: Outubro de 2024 - Fevereiro de 2025
+**Data**: 
+Outubro de 2024 - Fevereiro de 2025
+
 **Autores:**
 Gabriel Lazari Trevisani
 Laura Knoll Garcia De Oliveira
