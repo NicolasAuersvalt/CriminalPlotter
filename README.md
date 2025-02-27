@@ -11,6 +11,8 @@
 
 python 3
 
+![Criminal Plotter Diagram](githubAssets/cp.PNG)
+
 ## Instalação
 
 Para baixar o código, use:
@@ -25,6 +27,8 @@ Para instalar as bibliotecas, execute o script `instalador.sh`:
     ./instalador.sh
 
 ---
+
+
 
 ## Execução
 
@@ -54,6 +58,8 @@ Com isso, será lido o arquivo matrizes_metadata.json e elaborada uma matriz com
 
 Portanto, será possível iniciar uma nova análise.
 
+![Criminal Plotter Diagram](githubAssets/cp2.PNG)
+
 ---
 
 Abstract
@@ -70,6 +76,8 @@ Um dos principais fatores responsáveis pela baixa resolução de casos é a esc
 
 Para mitigar esse problema, os autores desenvolveram uma impressora "CNC Plotter" modificada, capaz de esboçar retratos criminais de potenciais suspeitos com base em um catálogo pré-definido de traços faciais, eliminando a necessidade de um artista forense no local.
 
+![Criminal Plotter Diagram](githubAssets/cp3.PNG)
+
 ## Introdução  
 
 Em 2023, o Brasil registrou **47.722 homicídios**, representando **10,4% do total mundial**, segundo [ONU](#). Em homicídios per capita, o país ocupa a **11ª posição**, com **22,38 mortes para cada 100 mil habitantes**, número **quase 1.000% superior à média da OCDE**, **400% maior que a média global** e **150% acima da média da América Latina**, de acordo com [OECD](#). Além disso, no que se refere a **roubos e furtos**, o Brasil apresenta uma taxa de **2.226 ocorrências para cada 100 mil habitantes**, conforme relatório da [FGV](#).  
@@ -80,6 +88,8 @@ Um dos principais fatores que dificultam a solução dos casos é a **escassez d
 
 Diante desse cenário, os autores propõem o desenvolvimento de uma **impressora "CNC Plotter" adaptada para esboço forense de rostos**, caracterizada por sua **facilidade de operação, baixo custo e fundamentação em métodos já existentes de retrato forense e reconhecimento facial**. Essa solução visa **dar maior autonomia às testemunhas e reduzir a sobrecarga da perícia criminal**. A autonomia das testemunhas é especialmente relevante em casos onde estas sofrem de **Transtorno de Estresse Pós-Traumático (PTSD)**, pois, conforme indicado por [Morganstein et al.](#) e [Parra et al.](#), indivíduos nessa condição podem apresentar dificuldades para comunicar informações detalhadas.  
 
+![Criminal Plotter Diagram](githubAssets/CP.jpg)
+
 ## Revisão de Literatura  
 
 ### O procedimento forense  
@@ -87,6 +97,8 @@ Diante desse cenário, os autores propõem o desenvolvimento de uma **impressora
 De acordo com [Klum et al.](#), esboços forenses são amplamente utilizados na ausência de registros fotográficos ou em vídeo do suspeito. Eles podem ser elaborados de duas formas: **desenhados manualmente por um artista** ou **gerados digitalmente** a partir da composição de elementos faciais armazenados em uma base de dados. O segundo método é mais recente e tem ganhado espaço, conforme apontado por [McQuiston et al.](#).  
 
 Ainda segundo [Klum et al.](#), após a elaboração do esboço, a imagem pode ser **divulgada em veículos midiáticos** ou **utilizada em buscas em bancos de dados criminais**. [Bahrum et al.](#) destacam que essa busca pode considerar **o rosto como um todo** ou **apenas algumas de suas características individuais**. Neste trabalho, no entanto, limitamo-nos exclusivamente à **geração do esboço**, sem aplicações diretas em **reconhecimento facial automatizado**.  
+
+![Criminal Plotter Diagram](githubAssets/Nícolas.jpg)
 
 ### O método do esboço  
 
@@ -108,6 +120,8 @@ Por fim, [Adjabi et al.](#) concluem que outra revolução ocorreu com o desenvo
 
 De modo geral, [Hatem et al.](#) e [Ding et al.](#) explicam que os sistemas mais modernos variam entre duas abordagens principais: **reconhecimento baseado em componentes faciais** e **reconhecimento da imagem como um todo**. Na década de 2020, os modelos de **Deep Learning** evoluíram a ponto de **se aproximarem da performance de especialistas em reconhecimento facial**. No entanto, a **maior precisão é alcançada quando ambos trabalham em conjunto**, como demonstrado por [O'Toole et al.](#).  
 
+![Criminal Plotter Diagram](githubAssets/blocos.png)
+
 ## Materiais e Métodos  
 
 ### Catálogo de características faciais  
@@ -127,6 +141,8 @@ A **eliminação da cor de cabelo** foi realizada porque o **plotter** não cons
 
 Em consonância com o catálogo, os autores criaram uma **impressora CNC Plotter modificada** que, através da técnica de **pontilhação**, imprime o esboço com as **componentes faciais** selecionadas pelo usuário. Como [Samal et al.](#) demonstraram, a relevância das características faciais tende a reduzir do cabelo até o queixo, e, por isso, as componentes também são escolhidas nessa ordem.  
 
+![Criminal Plotter Diagram](githubAssets/DiagramaPlotter.png)
+
 ### CNC Plotter  
 
 O **CNC Plotter** é um projeto relativamente comum no campo da eletrônica, e envolve os seguintes componentes:  
@@ -139,6 +155,8 @@ O **CNC Plotter** é um projeto relativamente comum no campo da eletrônica, e e
 A programação geralmente é realizada utilizando **G-code** (RS-274), e o projeto é frequentemente utilizado junto com softwares de **desenho de código aberto**, como **Inkscape**.  
 
 Exemplos de projetos semelhantes podem ser encontrados em [Girhe et al. (2018)](#), [Hasan et al. (2018)](#), [Nsayef et al. (2018)](#) e [Hyder et al. (2020)](#).
+
+![Criminal Plotter Diagram](githubAssets/Operação.jpeg)
 
 ### Materiais utilizados
 
@@ -154,6 +172,8 @@ Exemplos de projetos semelhantes podem ser encontrados em [Girhe et al. (2018)](
 - **Filamento PLA branco (500g)**:  
   A parte física do **plotter** foi modelada no **Tinkercad** (veja as **Figuras 7 e 8**) e impressa sem custos no laboratório **MEI-u** da **Universidade Tecnológica Federal do Paraná (UTFPR)**, campus Curitiba, utilizando **filamento PLA branco (500g)**. O modelo impresso é mostrado nas **Figuras 7 e 8**, e os materiais impressos estão ilustrados na **Figura 11**.
 
+![Criminal Plotter Diagram](githubAssets/esboço2.png)
+
 ### Otimização de desempenho
 
 Para garantir a padronização do ponto de início do desenho (0,0) e maximizar o alcance da área de impressão, optou-se por restringir a movimentação utilizando parafusos, sem a dependência de bibliotecas externas. O deslize contínuo sobre o PLA exigiu um processo intensivo de lixamento e testes, e foi aplicado **spray de silicone** como lubrificante para reduzir o atrito e garantir proteção extra às peças.
@@ -163,6 +183,8 @@ Além disso, a movimentação da peça foi cuidadosamente ajustada para evitar d
 ### Funcionamento do Criminal Plotter
 
 O **Criminal Plotter** conta com uma série de códigos destinados à comunicação entre o computador e o Arduino, bem como à manipulação de imagens e matrizes. O processo, resumido na **Figura 11**, segue as etapas automatizadas abaixo para garantir eficiência e integração:
+
+![Criminal Plotter Diagram](githubAssets/comparação1.png)
 
 ### Etapas do Processo
 
@@ -198,6 +220,8 @@ Esse processo de encadeamento é repetido três vezes, com diferentes sinalizaç
 Após o encadeamento, a função **"desenhar"** é executada. Essa função posiciona o motor **Z** na altura apropriada para a tarefa de desenho e envia um sinal **"Pronto"** para a interface Python, solicitando o envio de dois valores numéricos correspondentes às coordenadas **x** e **y** do próximo ponto.
 
 O código compara a posição atual com as coordenadas recebidas, determinando a direção de movimento necessária. Na posição alvo, a função **"canetar"** é acionada, que baixa e levanta a caneta para marcar um ponto no local especificado. Após concluir a operação, o código retorna o sinal **"Pronto"** para o Python, indicando que está preparado para receber novos comandos.
+
+![Criminal Plotter Diagram](githubAssets/votacao.png)
 
 ### Fluxo Completo de Comunicação e Desenho
 
