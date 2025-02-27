@@ -172,7 +172,6 @@ Exemplos de projetos semelhantes podem ser encontrados em [Girhe et al. (2018)](
 - **Filamento PLA branco (500g)**:  
   A parte física do **plotter** foi modelada no **Tinkercad** (veja as **Figuras 7 e 8**) e impressa sem custos no laboratório **MEI-u** da **Universidade Tecnológica Federal do Paraná (UTFPR)**, campus Curitiba, utilizando **filamento PLA branco (500g)**. O modelo impresso é mostrado nas **Figuras 7 e 8**, e os materiais impressos estão ilustrados na **Figura 11**.
 
-![Criminal Plotter Diagram](githubAssets/esboço2.png)
 
 ### Otimização de desempenho
 
@@ -246,6 +245,8 @@ Para testar a qualidade do esboço, foram feitos dois desenhos extraordinários 
 ### Possíveis Melhorias e Parcerias
 
 Para melhorar o catálogo, será necessário um método científico para incluir acessórios e características faciais adicionais. Isso pode ser feito em parceria com a **Unidade de Execução Técnico-Científica de Curitiba** – **Centro - Polícia Científica**, próxima à UTFPR. Esta delegacia especializada pode auxiliar na interpretação dos resultados e até melhorar os esboços.
+
+![Criminal Plotter Diagram](githubAssets/Esboço2.png)
 
 ### Desempenho e Otimizações
 
